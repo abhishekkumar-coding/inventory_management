@@ -32,7 +32,7 @@ export default function CartPage() {
           </Link>
         </div>
       ) : (
-        <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <div className="max-w-3xl my-20 mx-auto bg-white p-6 rounded-lg shadow-lg">
           {cartItems.map((item) => (
             <div
               key={item.id}

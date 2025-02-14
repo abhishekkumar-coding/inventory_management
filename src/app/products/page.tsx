@@ -66,7 +66,16 @@ export default function ProductListing() {
               <p className="text-gray-600">Price: ${product.price}</p>
               <button
                 className="mt-auto w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-                onClick={() => dispatch(addToCart(product))}
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      id: product.id,
+                      name: product.title,  
+                      price: product.price,
+                      quantity: 1,
+                    })
+                  )
+                }
               >
                 Add to Cart
               </button>

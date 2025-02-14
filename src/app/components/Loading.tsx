@@ -18,7 +18,7 @@ export default function Loading() {
               repeat: Infinity,
               repeatDelay: 0.2,
               ease: "easeInOut",
-              delay: i * 0.2, // Delays each dot for staggered effect
+              delay: i * 0.2, 
             }}
           />
         ))}

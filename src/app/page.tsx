@@ -22,7 +22,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="mt-16 grid gap-6 md:grid-cols-3">
         <div className="bg-white p-6 rounded-lg shadow-lg text-center">
           <Package className="w-12 h-12 mx-auto text-blue-600" />
