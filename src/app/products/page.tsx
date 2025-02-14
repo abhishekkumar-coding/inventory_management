@@ -5,7 +5,8 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 import { PackageOpen } from "lucide-react";
-import Loading from "../components/Loading";
+// import Loading from "../components/Loading";
+import SkeletonCard from "../components/SkeletonCard";
 
 interface Product {
   id: number;
@@ -39,7 +40,11 @@ export default function ProductListing() {
       </h1>
 
       {loading ? (
-        <Loading />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {Array.from({ length: 8 }).map((_, index) => (
+          <SkeletonCard key={index} />
+        ))}
+      </div>
       ) : products.length === 0 ? (
         <div className="flex flex-col items-center justify-center mt-20">
           <PackageOpen size={60} className="text-gray-400" />
@@ -50,7 +55,7 @@ export default function ProductListing() {
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition flex flex-col"
+              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition flex flex-col items-start justify-between"
             >
               <div className="relative w-full h-48">
                 <Image
@@ -60,10 +65,12 @@ export default function ProductListing() {
                   objectFit="contain"
                 />
               </div>
-              <h2 className="text-lg font-semibold text-gray-800">
+              <div className="h-28 py-3 flex flex-col items-start justify-between">
+              <h2 className="text-lg h-14 overflow-hidden font-semibold text-gray-800">
                 {product.title}
               </h2>
               <p className="text-gray-600">Price: ${product.price}</p>
+              </div>
               <button
                 className="mt-auto w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
                 onClick={() =>
