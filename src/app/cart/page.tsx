@@ -6,9 +6,13 @@ import { removeFromCart } from "../redux/cartSlice";
 import Link from "next/link";
 import { ShoppingBag } from "lucide-react";
 
+
+
 export default function CartPage() {
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const dispatch = useDispatch();
+
+
 
   return (
     <div className="container mx-auto p-6">

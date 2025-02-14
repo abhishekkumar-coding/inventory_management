@@ -7,8 +7,17 @@ import { addToCart } from "../redux/cartSlice";
 import { PackageOpen } from "lucide-react";
 import Loading from "../components/Loading";
 
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+}
+
 export default function ProductListing() {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
